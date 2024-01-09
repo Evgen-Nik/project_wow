@@ -1,0 +1,27 @@
+@import 'libs/bootstrap-reboot.min';
+@import 'libs/slick';
+
+@import 'base/animations';
+
+@import 'fonts/fonts';
+
+* {
+    font-family: 'AeonikProTRIAL', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+@import 'blocks/title';
+@import 'blocks/btn';
+@import 'blocks/header';
+@import 'blocks/err';
+@import 'blocks/cataloge-boxes';
+@import 'blocks/footer';
+@import 'blocks/modal';
+
+@import 'blocks/media';

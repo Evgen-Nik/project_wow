@@ -1,0 +1,78 @@
+{
+  "cataloge": [
+    {
+      "img": "https://images.unsplash.com/photo-1506424482693-1f123321fa53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1703&q=80",
+      "altImg": "moto",
+      "dataModal": "c1",
+      "title": "Катание на кроссовом мотоцикле",
+      "oldPrice": "4 900",
+      "price": "4 000",
+      "id": "c1",
+      "descr": "card1"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1506424482693-1f123321fa53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1703&q=80",
+      "altImg": "moto",
+      "dataModal": "c2",
+      "title": "Катание на кроссовом мотоцикле",
+      "oldPrice": "4 900",
+      "price": "4 000",
+      "id": "c2",
+      "descr": "card2"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1506424482693-1f123321fa53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1703&q=80",
+      "altImg": "moto",
+      "dataModal": "c3",
+      "title": "Катание на кроссовом мотоцикле",
+      "oldPrice": "4 900",
+      "price": "4 000",
+      "id": "c3",
+      "descr": "card3"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1506424482693-1f123321fa53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1703&q=80",
+      "altImg": "moto",
+      "dataModal": "c4",
+      "title": "Катание на кроссовом мотоцикле",
+      "oldPrice": "4 900",
+      "price": "4 000",
+      "id": "c4",
+      "descr": "card4"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1506424482693-1f123321fa53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1703&q=80",
+      "altImg": "moto",
+      "dataModal": "c5",
+      "title": "Катание на кроссовом мотоцикле",
+      "oldPrice": "4 900",
+      "price": "4 000",
+      "id": "c5",
+      "descr": "card5"
+    }
+  ],
+  "boxes": [],
+  "activate": [
+    {
+      "name": "qq",
+      "phone": "+7 (111) 122-22-22",
+      "email": "asdfasf@mail.ru",
+      "code": "018868",
+      "id": 1
+    }
+  ],
+  "callback": [
+    {
+      "name": "sdfsdf",
+      "phone": "+7 (911) 168-33-42",
+      "email": "asdfasf@mail.ru",
+      "id": 1
+    },
+    {
+      "name": "Food",
+      "phone": "+7 (111) 111-11-11",
+      "email": "asdfasf@mail.ru",
+      "id": 2
+    }
+  ]
+}

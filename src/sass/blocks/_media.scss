@@ -1,0 +1,198 @@
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    
+}
+
+
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    .btn {
+        height: 40px; 
+        font-size: 14px;
+        padding: 8px 15px;
+        border-radius: 20px;
+    }
+    .title {
+        font-size: 24px;
+        &_fz20 {
+            font-size: 18px;
+        }
+    }
+    .logo {
+        width: 200px;
+    }
+    .err {
+        &__title {
+            width: 100%;
+            font-size: 28px;
+        }
+    }
+    .footer {
+        &__socials {
+            &-link {
+                width: 40px;
+                height: 40px;
+                img {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    .btn {
+        height: 35px; 
+        font-size: 13px;
+        padding: 5px 10px;
+        border-radius: 17px;
+    }
+    .title {
+        font-size: 22px;
+        &_fz20 {
+            font-size: 16px;
+        }
+    }
+    .logo {
+        width: 180px;
+    }
+    .header {
+        &__menu {
+            gap: 10px;
+        }
+    }
+    .err {
+        &__wrapper {
+            padding: 35px;
+        }
+        &__title {
+            font-size: 24px;
+        }
+        &__subtitle {
+            font-size: 18px;
+        }
+    }
+    .cataloge, .boxes {
+        .card {
+            &__img {
+                height: 250px;
+            }
+        }
+    }
+    .footer {
+        &__contacts {
+            flex-direction: column;
+        }
+        &__contacts, &__socials {
+            &-item {
+                margin: 0 10px;
+            }
+        }
+    }
+    .modal {
+        &__dialog {
+            max-width: 350px;
+        }
+        &__content {
+            padding: 30px;
+        }
+        &__close {
+            font-size: 35px;
+        }
+        &__subtitle {
+            font-size: 16px;
+        }
+        &__input {
+            width: 260px;
+            height: 40px;
+            font-size: 14px;
+        }
+    }
+}
+
+
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .header {
+        &__main {
+            flex-direction: column;
+            gap: 20px;
+            align-items:center;
+        }
+        &__menu {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+    .err {
+        margin-top: 40px;
+        &__wrapper {
+            padding: 20px;
+        }
+        &__title {
+            font-size: 22px;
+        }
+        &__subtitle {
+            font-size: 18px;
+        }
+        .contacts {
+            &__item {
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+        }
+    }
+    .cataloge, .boxes {
+        margin-top: 40px;
+    }
+    .footer {
+        margin-top: 40px;
+        &__wrap {
+            margin-top: 30px;
+            flex-direction: column;
+        }
+        &__contacts, &__socials {
+            &-item {
+                display: block;
+                margin: 0 auto;
+            }
+            &-link {
+                font-size: 14px;
+            }
+        }
+    }
+    .modal {
+        &__dialog {
+            max-width: 280px;
+        }
+        &__content {
+            padding: 30px 10px;
+        }
+        &__close {
+            font-size: 30px;
+        }
+        &__subtitle {
+            font-size: 16px;
+        }
+        &__input {
+            width: 240px;
+            height: 40px;
+            font-size: 14px;
+        }
+    }
+}

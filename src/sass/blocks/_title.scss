@@ -1,0 +1,10 @@
+.title  {
+    font-family: 'AtypDisplay';
+    font-weight:400;
+    font-style:normal;
+    font-size: 28px;
+    text-transform: uppercase;
+    &_fz20 {
+        font-size: 20px;
+    }
+}
