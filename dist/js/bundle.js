@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/modules/card.js":
-/*!********************************!*\
-  !*** ./src/js/modules/card.js ***!
-  \********************************/
+/***/ "./src/js/modules/cardDetails.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/cardDetails.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14,51 +14,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
 
-function card() {
-  class catalogeCard {
-    constructor(src, altImg, dataModal, title, oldPrice, price) {
-      this.src = src;
-      this.altImg = altImg;
+function cardDetails(adress) {
+  class details {
+    constructor(title, id, descr, parentSelector, ...classes) {
       this.title = title;
-      this.dataModal = dataModal;
-      this.oldPrice = oldPrice;
-      this.price = price;
+      this.id = id;
+      this.descr = descr;
+      this.parent = document.querySelector(parentSelector);
+      this.classes = classes;
     }
     render() {
-      const element = document.createElement('div');
-      element.classList.add('card');
-      element.innerHTML = `
-                <div class="card__img">
-                    <div class="card__pik">
-                        <img src=${this.src} alt=${this.altImg}>
+      const elemDescr = document.createElement('div');
+      if (this.classes.length === 0) {
+        this.elemDescr = 'cardDetail';
+        elemDescr.classList.add(this.elemDescr);
+      } else {
+        this.classes.forEach(className => elemDescr.classList.add(className));
+      }
+      elemDescr.innerHTML = `
+                <div class="details" id=${this.id}>
+                    <div class="details__wrapper">
+                        <div class="details__content">
+                            <div class="details__close" data-close>&times;</div>
+                            <div class="details__title">${this.title}</div>
+                            <div class="details__descr">
+                                ${this.descr}</div>
+                        </div>
                     </div>
-                    <div class="card__btns">
-                        <button data-modal=${this.dataModal} class="btn">Подробнее</button>
-                        <button class="btn">Купить</button>
-                    </div>
-                </div>
-                <div class="card__descr">
-                    <div class="card__title title title_fz20">${this.title}</div>
-                    <span class="card__old-price">${this.oldPrice} ₽</span>
-                    <span class="card__price title title_fz20">${this.price} ₽</span>
                 </div>
             `;
+      this.parent.append(elemDescr);
     }
   }
-  (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)('http://localhost:3000/cataloge').then(data => {
+  (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
     data.forEach(({
-      img,
-      altimg,
-      dataModal,
       title,
-      oldPrice,
-      price
+      id,
+      descr
     }) => {
-      new catalogeCard(img, altimg, dataModal, title, oldPrice, price).render();
+      new details(title, id, descr, ".cardDetails").render();
     });
   });
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (card);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cardDetails);
 
 /***/ }),
 
@@ -75,82 +73,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
 
-function cards() {
+function cards(container, adress) {
   class catalogeCard {
-    // constructor (src, altImg, dataModal, title, oldPrice, price, id, descr, parentSelector1, parentSelector2, ...classes) {
-    constructor(src, altImg, dataModal, title, oldPrice, price, parentSelector1, ...classes) {
+    constructor(src, alt, dataModal, title, oldPrice, price) {
       this.src = src;
-      this.altImg = altImg;
+      this.alt = alt;
       this.title = title;
       this.dataModal = dataModal;
       this.oldPrice = oldPrice;
       this.price = price;
-      // this.id = id;
-      // this.descr = descr;
-      this.parent1 = document.querySelector(parentSelector1);
-      // this.parent2 = document.querySelector(parentSelector2);
-      this.classes = classes;
     }
     render() {
-      const element = document.createElement('div');
-      if (this.classes.length === 0) {
-        this.element = 'card';
-        element.classList.add(this.element);
-      } else {
-        this.classes.forEach(className => element.classList.add(className));
-      }
-      element.innerHTML = `
-                <div class="card__img">
-                    <div class="card__pik">
-                        <img src=${this.src} alt=${this.altImg}>
+      $(container).slick('slickAdd', `<div class="card">
+                    <div class="card__img">
+                        <div class="card__pik">
+                            <img src=${this.src} alt=${this.alt}>
+                        </div>
+                        <div class="card__btns">
+                            <button data-modal=${this.dataModal} class="btn">Подробнее</button>
+                            <button class="btn">Купить</button>
+                        </div>
                     </div>
-                    <div class="card__btns">
-                        <button data-modal=${this.dataModal} class="btn">Подробнее</button>
-                        <button class="btn">Купить</button>
+                    <div class="card__descr">
+                        <div class="card__title title title_fz20">${this.title}</div>
+                        <span class="card__old-price">${this.oldPrice} ₽</span>
+                        <span class="card__price title title_fz20">${this.price} ₽</span>
                     </div>
-                </div>
-                <div class="card__descr">
-                    <div class="card__title title title_fz20">${this.title}</div>
-                    <span class="card__old-price">${this.oldPrice} ₽</span>
-                    <span class="card__price title title_fz20">${this.price} ₽</span>
-                </div>
-            `;
-      this.parent1.append(element);
-
-      // const elemDescr = document.createElement('div');
-      // if(this.classes.length === 0) {
-      //     this.elemDescr = 'cardDetail';
-      //     elemDescr.classList.add(this.elemDescr);
-      // } else {
-      //     this.classes.forEach(className => elemDescr.classList.add(className));
-      // }
-      // elemDescr.innerHTML = `
-      //     <div class="details" id=${this.id}>
-      //         <div class="details__wrapper">
-      //             <div class="details__content">
-      //                 <div class="details__close" data-close>&times;</div>
-      //                 <div class="details__title">${this.title}</div>
-      //                 <div class="details__descr">
-      //                     ${this.descr}</div>
-      //             </div>
-      //         </div>
-      //     </div>
-      // `;
-      // this.parent.append(elemDescr);
+                </div>`);
     }
   }
-  (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)('http://localhost:3000/cataloge').then(data => {
-    // data.forEach(({img, altimg, dataModal, title, oldPrice, price, id, descr}) => {
+  (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
     data.forEach(({
       img,
-      altimg,
+      alt,
       dataModal,
       title,
       oldPrice,
       price
     }) => {
-      // new catalogeCard(img, altimg, dataModal, title, oldPrice, price, id, descr, ".cataloge .container .cataloge__slider", ".cardDetails").render();
-      new catalogeCard(img, altimg, dataModal, title, oldPrice, price, ".cataloge .container .cataloge__slider").render();
+      new catalogeCard(img, alt, dataModal, title, oldPrice, price).render();
     });
   });
 }
@@ -303,7 +264,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./card */ "./src/js/modules/card.js");
+// import card from "./card";
 
 function sliSlider(container) {
   $(container).slick({
@@ -325,8 +286,10 @@ function sliSlider(container) {
       }
     }]
   });
-  const newSlide = (0,_card__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  $(container).slick('slickAdd', newSlide);
+
+  // const newSlide = card();
+
+  // $(container).slick('slickAdd', newSlide);
 
   // $(container).slick('slickAdd',
   // `<div class="card">
@@ -1677,12 +1640,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nodelist_foreach_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nodelist_foreach_polyfill__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
-/* harmony import */ var _modules_cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/cards */ "./src/js/modules/cards.js");
-/* harmony import */ var _modules_sliSlider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/sliSlider */ "./src/js/modules/sliSlider.js");
+/* harmony import */ var _modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/cardDetails */ "./src/js/modules/cardDetails.js");
+/* harmony import */ var _modules_cards__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/cards */ "./src/js/modules/cards.js");
+/* harmony import */ var _modules_sliSlider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/sliSlider */ "./src/js/modules/sliSlider.js");
 (__webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-promise.js").polyfill)();
 
 
 // import slider from './modules/slider';
+
 
 
 
@@ -1695,24 +1660,38 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Timer
 
-  const modalTimerID = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal-consultation', modalTimerID), 20000);
+  const modalTimerID = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal-consultation', modalTimerID), 60000);
 
   // Modules
 
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal=consultation]', '.modal-consultation', modalTimerID);
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal=activation]', '.modal-activation');
-  for (let i = 1; i <= 10; i++) {
-    (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])(`[data-modal=c${i}]`, `#c${i}`);
-  }
-  for (let i = 1; i <= 10; i++) {
-    (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])(`[data-modal=b${i}]`, `#b${i}`);
-  }
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_2__["default"])('.form-consultation', '.modal-consultation', '.dialog-consultation', modalTimerID, 'http://localhost:3000/callback');
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_2__["default"])('.form-activation', '.modal-activation', '.dialog-activation', modalTimerID, 'http://localhost:3000/activate');
+  (0,_modules_sliSlider__WEBPACK_IMPORTED_MODULE_5__["default"])('.cataloge__slider');
+  (0,_modules_sliSlider__WEBPACK_IMPORTED_MODULE_5__["default"])('.boxes__slider');
 
-  // cards();
+  // cards('.cataloge__slider', 'http://localhost:3000/cataloge');
+  // cards('.boxes__slider', 'http://localhost:3000/boxes');
 
-  (0,_modules_sliSlider__WEBPACK_IMPORTED_MODULE_4__["default"])('.cataloge__slider');
+  (0,_modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__["default"])('http://localhost:3000/cataloge');
+  (0,_modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__["default"])('http://localhost:3000/boxes');
+
+  // for (let i = 1; i <= 10; i++) {
+  //     modal(`[data-modal=c${i}]`, `#c${i}`);
+  // }
+  // for (let i = 1; i <= 10; i++) {
+  //     modal(`[data-modal=b${i}]`, `#b${i}`);
+  // }
+
+  function forModal(name) {
+    for (let i = 1; i <= 10; i++) {
+      (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])(`[data-modal=${name}${i}]`, `#${name}${i}`);
+    }
+  }
+  ;
+  forModal('c');
+  forModal('b');
 });
 })();
 

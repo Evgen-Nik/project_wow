@@ -1,4 +1,4 @@
-import card from "./card";
+// import card from "./card";
 
 function sliSlider(container) {
     $(container).slick({
@@ -24,9 +24,9 @@ function sliSlider(container) {
         ]
     });
 
-    const newSlide = card();
+    // const newSlide = card();
 
-    $(container).slick('slickAdd', newSlide);
+    // $(container).slick('slickAdd', newSlide);
 
     // $(container).slick('slickAdd',
     // `<div class="card">
