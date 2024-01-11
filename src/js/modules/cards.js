@@ -32,7 +32,7 @@ function cards (container, adress) {
                 </div>`);
         }
     }
-    getResource(adress)
+    return getResource(adress)
         .then(data => {
             data.forEach(({img, alt, dataModal, title, oldPrice, price}) => {
                 new catalogeCard(img, alt, dataModal, title, oldPrice, price).render();

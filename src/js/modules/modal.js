@@ -35,15 +35,6 @@ function modal (triggerSelector, modalSelector, modalTimerID) {
             closeModal(modalSelector);
         }
     });
- 
-//    function showModalByScroll() {
-//        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
-//            openModal(modalSelector, modalTimerID);
-//            window.removeEventListener('scroll', showModalByScroll);
-//        } 
-//    }
-
-//    window.addEventListener('scroll', showModalByScroll);
 }
 
 export default modal;

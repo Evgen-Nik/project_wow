@@ -46,7 +46,7 @@ function cardDetails(adress) {
       this.parent.append(elemDescr);
     }
   }
-  (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
+  return (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
     data.forEach(({
       title,
       id,
@@ -102,7 +102,7 @@ function cards(container, adress) {
                 </div>`);
     }
   }
-  (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
+  return (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
     data.forEach(({
       img,
       alt,
@@ -237,15 +237,6 @@ function modal(triggerSelector, modalSelector, modalTimerID) {
       closeModal(modalSelector);
     }
   });
-
-  //    function showModalByScroll() {
-  //        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
-  //            openModal(modalSelector, modalTimerID);
-  //            window.removeEventListener('scroll', showModalByScroll);
-  //        } 
-  //    }
-
-  //    window.addEventListener('scroll', showModalByScroll);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
 
@@ -264,8 +255,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-// import card from "./card";
-
 function sliSlider(container) {
   $(container).slick({
     arrows: false,
@@ -286,28 +275,6 @@ function sliSlider(container) {
       }
     }]
   });
-
-  // const newSlide = card();
-
-  // $(container).slick('slickAdd', newSlide);
-
-  // $(container).slick('slickAdd',
-  // `<div class="card">
-  //     <div class="card__img">
-  //         <div class="card__pik">
-  //             <img src="images/pack-img.png" alt="">
-  //         </div>
-  //         <div class="card__btns">
-  //             <button data-modal='b10' class="btn">Подробнее</button>
-  //             <button class="btn">Купить</button>
-  //         </div>
-  //     </div>
-  //     <div class="card__descr">
-  //         <div class="card__title title title_fz20">В мире эмоций</div>
-  //         <span class="card__old-price">6 900 ₽</span>
-  //         <span class="card__price title title_fz20">5 000 ₽</span>
-  //     </div>
-  // </div>`);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliSlider);
 
@@ -1646,52 +1613,34 @@ __webpack_require__.r(__webpack_exports__);
 (__webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-promise.js").polyfill)();
 
 
-// import slider from './modules/slider';
-
 
 
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  // Маска ввода номера
-
   $('input[name=phone]').mask('+7 (999) 999-99-99');
-
-  // Timer
-
   const modalTimerID = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal-consultation', modalTimerID), 60000);
-
-  // Modules
-
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal=consultation]', '.modal-consultation', modalTimerID);
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal=activation]', '.modal-activation');
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_2__["default"])('.form-consultation', '.modal-consultation', '.dialog-consultation', modalTimerID, 'http://localhost:3000/callback');
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_2__["default"])('.form-activation', '.modal-activation', '.dialog-activation', modalTimerID, 'http://localhost:3000/activate');
   (0,_modules_sliSlider__WEBPACK_IMPORTED_MODULE_5__["default"])('.cataloge__slider');
   (0,_modules_sliSlider__WEBPACK_IMPORTED_MODULE_5__["default"])('.boxes__slider');
-
-  // cards('.cataloge__slider', 'http://localhost:3000/cataloge');
-  // cards('.boxes__slider', 'http://localhost:3000/boxes');
-
-  (0,_modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__["default"])('http://localhost:3000/cataloge');
-  (0,_modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__["default"])('http://localhost:3000/boxes');
-
-  // for (let i = 1; i <= 10; i++) {
-  //     modal(`[data-modal=c${i}]`, `#c${i}`);
-  // }
-  // for (let i = 1; i <= 10; i++) {
-  //     modal(`[data-modal=b${i}]`, `#b${i}`);
-  // }
-
+  (0,_modules_cards__WEBPACK_IMPORTED_MODULE_4__["default"])('.cataloge__slider', 'http://localhost:3000/cataloge');
+  (0,_modules_cards__WEBPACK_IMPORTED_MODULE_4__["default"])('.boxes__slider', 'http://localhost:3000/boxes');
+  (0,_modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__["default"])('http://localhost:3000/cataloge').then(() => {
+    forModal('c');
+  });
+  (0,_modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__["default"])('http://localhost:3000/boxes').then(() => {
+    forModal('b');
+  });
   function forModal(name) {
     for (let i = 1; i <= 10; i++) {
       (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])(`[data-modal=${name}${i}]`, `#${name}${i}`);
     }
   }
   ;
-  forModal('c');
-  forModal('b');
 });
 })();
 

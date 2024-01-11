@@ -34,7 +34,7 @@ function cardDetails (adress) {
             this.parent.append(elemDescr);
         }
     }
-    getResource(adress)
+    return getResource(adress)
         .then(data => {
             data.forEach(({title, id, descr}) => {
                 new details(title, id, descr, ".cardDetails").render();
